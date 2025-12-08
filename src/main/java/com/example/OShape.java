@@ -3,7 +3,6 @@ package com.example;
 public class OShape extends Shape {
 
     private static final int ID = 4;
-    // Adjust start offset if needed to match your board
     private static final Position START_OFFSET = new Position(0, 4);
     
     private final Position[][] tiles = {

@@ -18,7 +18,6 @@ public class TetrisFX extends Application {
 
     @Override
     public void start(Stage stage) {
-        // Window size chosen to match your existing layout / developer grid
         Canvas canvas = new Canvas(945, 1080);
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
@@ -30,6 +29,7 @@ public class TetrisFX extends Application {
         Scene scene = new Scene(root);
 
         // Hook up input handling to the controller
+        /* This is the easiest way i found to set the controls */
         controller.attachScene(scene);
 
         stage.setTitle("Tetris");

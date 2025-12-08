@@ -1,14 +1,13 @@
 package com.example;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * All of the 7 Major Shapes extend this class
  * 
  * All shapes contain tile positions, and their 4 rotations
  * 
- * This is where major diffrences in c
+ * consult with this repository for better understanding of shapes and their behavior: :https://github.com/semibran/tetromino
  * 
  */
 public abstract class Shape {

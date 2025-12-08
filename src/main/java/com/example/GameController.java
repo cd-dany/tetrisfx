@@ -46,16 +46,17 @@ public class GameController {
     if (animation != null) {
         animation.stop();
     }
-
-    // Example: base 500ms, minus 30ms per level, but never below 100ms
+    
     int level = model.getLevel();
     double delay = 500 - (level - 1) * 30;
     if (delay < 100) {
         delay = 100;
     }
 
+    // Animation:Game Loop
     animation = new Timeline(
         new KeyFrame(Duration.millis(delay), e -> {
+            
             if (!model.isGameOver()) {
                 model.moveShapeDown();
                 view.render(model);

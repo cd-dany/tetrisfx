@@ -1,7 +1,7 @@
 package com.example;
 
 import java.util.Random;
-
+/* This just generates the next shape or tetronimo, itis used by the GameModel */
 public class ShapeQueue {
 
     private final Shape[] shapes = {

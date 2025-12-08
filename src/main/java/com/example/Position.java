@@ -1,5 +1,8 @@
 package com.example;
 
+/**
+ * Mainly used by the Shape class
+ */
 public class Position {
     private int row;
     private int column;
@@ -8,7 +11,6 @@ public class Position {
         this.row = row;
         this.column = column;
     }
-    /* Getters and Setters for row and Column */
     public int getRow(){
         return this.row;
     }

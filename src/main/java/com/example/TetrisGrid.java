@@ -1,12 +1,7 @@
 package com.example;
 
-import java.io.File;
-
-import javafx.scene.media.AudioClip;
-
 /**
- * Source:https://www.youtube.com/watch?v=jcUctrLC-7M Consult with this video in
- * sections
+ * Consult with this source on how the grid works for better understanding of how the grid works:https://www.youtube.com/watch?v=jcUctrLC-7M
  */
 public class TetrisGrid {
     private int rows;

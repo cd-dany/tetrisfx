@@ -8,8 +8,8 @@ public class IShape extends Shape {
         {new Position(2, 0),new Position(2, 1),new Position(2, 2),new Position(2, 3)},
         {new Position(0, 1),new Position(1, 1),new Position(2, 1),new Position(3, 1)}
     };
-    private static final int ID = 1; //I Shape ID is always 1
-    private static final Position startOffset = new Position(-1, 3); // All I Shape Blocks Start Here
+    private static final int ID = 1; 
+    private static final Position startOffset = new Position(-1, 3); 
 
     IShape(){
 
