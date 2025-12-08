@@ -13,7 +13,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
 public class GameController {
-    private Timeline animation; // regular drop timer
+    private Timeline animation;
     private final GameModel model;
     private final GameView view;
     MediaPlayer player;
@@ -22,7 +22,7 @@ public class GameController {
         this.model = model;
         this.view = view;
 
-        // //Set up the Theme Musing 
+        //Set up the Theme Musing 
         String ThemeSongfilepath = "src/main/resources/sounds/TetrisTheme.mp3";
         File file = new File (ThemeSongfilepath);
         Media MainTheme = new Media(file.toURI().toString());
@@ -46,16 +46,10 @@ public class GameController {
     if (animation != null) {
         animation.stop();
     }
-    
-    int level = model.getLevel();
-    double delay = 500 - (level - 1) * 30;
-    if (delay < 100) {
-        delay = 100;
-    }
 
     // Animation:Game Loop
     animation = new Timeline(
-        new KeyFrame(Duration.millis(delay), e -> {
+        new KeyFrame(Duration.millis(500), e -> {
             
             if (!model.isGameOver()) {
                 model.moveShapeDown();
