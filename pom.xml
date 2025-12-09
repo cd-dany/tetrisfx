@@ -17,22 +17,26 @@
     </properties>
 
     <dependencies>
+        <!--JavaFX-Controls-->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>${javafx.version}</version>
+            <classifier>win</classifier>
         </dependency>
-
+    <!-- JavaFX Media-->
         <dependency>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-media</artifactId>
                 <version>${javafx.version}</version>
+                <classifier>win</classifier>
             </dependency>
         </dependencies>
 
     <build>
         <plugins>
-        <!--Fat Jar Plugin-->
+
+        <!--Fat Jar Plugis-->
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-jar-plugin</artifactId>
@@ -45,6 +49,46 @@
                 </archive>
             </configuration>
         </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-shade-plugin</artifactId>
+            <version>3.5.0</version>
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>shade</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+
+        <plugin>
+    <groupId>org.panteleyev</groupId>
+    <artifactId>jpackage-maven-plugin</artifactId>
+    <version>1.7.1</version>
+
+    <configuration>
+        <destination>${project.build.directory}/jpackage</destination>
+
+        <name>TetrisFX</name>
+        <vendor>YourName</vendor>
+        <appVersion>1.0</appVersion>
+
+        <type>EXE</type>
+
+        <input>${project.build.directory}</input>
+
+        <mainJar>${project.build.finalName}.jar</mainJar>
+
+        <mainClass>your.package.Main</mainClass>
+        <winConsole>false</winConsole>
+        <verbose>true</verbose>
+    </configuration>
+</plugin>
+
+
+        <!--JavaFx Plugin-->
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
