@@ -12,6 +12,7 @@ public class GameModel {
     private ShapeQueue shapeQueue;
     private Shape currentShape;
     private boolean gameOver;
+    private boolean drawGrid = true;
 
     private int score;
     private int level;
@@ -19,6 +20,9 @@ public class GameModel {
 
     public GameModel() {
         reset();
+    }
+    public boolean getDrawGrid(){
+        return this.drawGrid;
     }
 
     public TetrisGrid getTetrisGrid() {
@@ -57,6 +61,7 @@ public class GameModel {
         this.level = 1;
         this.linesCleared = 0;
         this.gameOver = false;
+        this.drawGrid = true;
         spawnNextShape();
     }
 
@@ -163,6 +168,10 @@ public class GameModel {
     }
 
     private void placeBlock() {
+        /* if level reaches 5, stop drawing the grid */
+        if(this.level == 2)
+            this.drawGrid =false;
+
         for (Position cell : currentShape.tilePositions()) {
             int row = cell.getRow();
             int col = cell.getColumn();

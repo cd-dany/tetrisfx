@@ -38,7 +38,7 @@ public class GameView {
         // 1. Clear and draw static UI elements
         drawBackground();
         drawBoard();
-        //drawDeveloperGrid();
+        
         drawTitle();
 
         // 2. Draw locked blocks and current falling shape
@@ -49,6 +49,8 @@ public class GameView {
         drawScore(model.getScore());
         drawLevel(model.getLevel());
         drawCleared(model.getLinesCleared());
+        if (model.getDrawGrid() == true)
+            drawGridLines();
     }
 
     /**
@@ -139,7 +141,7 @@ public class GameView {
     /**
      * For developer use, it better highlights the grid for better component placement
      */
-    private void drawDeveloperGrid() {
+     private void drawDeveloperGrid() {
         gc.setStroke(Color.DARKGRAY);
         gc.setLineWidth(1.0);
 
@@ -153,6 +155,23 @@ public class GameView {
         for (int row = 0; row <= 24; row++) {
             double y = row * 45;
             gc.strokeLine(0, y, 21 * 45, y);
+        }
+    }
+    
+    private void drawGridLines(){
+        gc.setStroke(Color.DARKGRAY);
+        gc.setLineWidth(1.0);
+
+        // Vertical lines (columns)
+        for (int col = 2; col <= 12; col++) {
+            double x = col * 45;
+            gc.strokeLine(x, 90, x, 22 * 45);
+        }
+
+        // Horizontal lines (rows)
+        for (int row = 2; row <= 22; row++) {
+            double y = row * 45;
+            gc.strokeLine(90, y, 12 * 45, y);
         }
     }
 

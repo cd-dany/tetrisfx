@@ -54,7 +54,7 @@ public class GameController {
             if (!model.isGameOver()) {
                 model.moveShapeDown();
                 view.render(model);
-            } else {
+             } else {
                  AudioClip sound = new AudioClip(new File("src/main/resources/sounds/Tetris(GB)-game_over.wav").toURI().toString());
             sound.play();
                 animation.stop();
